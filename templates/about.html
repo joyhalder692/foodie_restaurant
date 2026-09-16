@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie | About</title>
+
+    <!-- Flask Static CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🍔 Foodie
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a href="{{ url_for('menu') }}">
+                Menu
+            </a>
+
+            <a href="{{ url_for('about') }}"
+               class="active">
+                About
+            </a>
+
+            <a href="{{ url_for('contact') }}">
+                Contact
+            </a>
+
+            <a href="{{ url_for('cart') }}"
+               class="cart-link">
+
+                🛒 Cart
+                (<span id="cart-count">0</span>)
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= ABOUT HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                ABOUT FOODIE
+            </p>
+
+            <h1>
+                Good Food.
+                <br>
+                Great Taste.
+            </h1>
+
+            <p>
+                Happy customers.
+            </p>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            🍔🍕🍝
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= OUR STORY ================= -->
+
+    <section class="popular-section">
+
+        <div class="section-title">
+
+            <p>
+                ❤️ OUR STORY
+            </p>
+
+            <h2>
+                About Foodie
+            </h2>
+
+            <span>
+                Delicious food made with love and care.
+            </span>
+
+        </div>
+
+
+        <div class="why-grid">
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🍕
+                </div>
+
+                <h3>
+                    Made With Love
+                </h3>
+
+                <p>
+                    Fresh ingredients and delicious
+                    recipes in every order.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    👨‍🍳
+                </div>
+
+                <h3>
+                    Our Story
+                </h3>
+
+                <p>
+                    Welcome to Foodie, your favourite
+                    destination for delicious and
+                    freshly prepared food.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🍔
+                </div>
+
+                <h3>
+                    Delicious Food
+                </h3>
+
+                <p>
+                    From tasty pizzas and juicy burgers
+                    to delicious biryani and pasta,
+                    we prepare every dish with care.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= WHY CHOOSE FOODIE ================= -->
+
+    <section class="why-section">
+
+        <div class="section-title">
+
+            <p>
+                ⭐ WHY CHOOSE FOODIE?
+            </p>
+
+            <h2>
+                Why Choose Foodie?
+            </h2>
+
+            <span>
+                We always try to give you the best
+                food experience.
+            </span>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <!-- Fresh Ingredients -->
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🥗
+                </div>
+
+                <h3>
+                    Fresh Ingredients
+                </h3>
+
+                <p>
+                    We use fresh and quality ingredients
+                    to prepare delicious meals.
+                </p>
+
+            </div>
+
+
+            <!-- Fast Delivery -->
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🚀
+                </div>
+
+                <h3>
+                    Fast Delivery
+                </h3>
+
+                <p>
+                    Your food is carefully packed and
+                    delivered as quickly as possible.
+                </p>
+
+            </div>
+
+
+            <!-- Expert Chefs -->
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    👨‍🍳
+                </div>
+
+                <h3>
+                    Expert Chefs
+                </h3>
+
+                <p>
+                    Our chefs prepare every dish with
+                    passion and attention to detail.
+                </p>
+
+            </div>
+
+
+            <!-- Affordable Price -->
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    💰
+                </div>
+
+                <h3>
+                    Affordable Price
+                </h3>
+
+                <p>
+                    Enjoy tasty food at prices that are
+                    friendly to your pocket.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= STATS ================= -->
+
+    <section class="popular-section">
+
+        <div class="section-title">
+
+            <p>
+                OUR ACHIEVEMENTS
+            </p>
+
+            <h2>
+                Foodie By Numbers
+            </h2>
+
+        </div>
+
+
+        <div class="popular-grid">
+
+
+            <div class="popular-card">
+
+                <div class="popular-food">
+                    🍔
+                </div>
+
+                <h3>
+                    500+
+                </h3>
+
+                <p>
+                    Orders Delivered
+                </p>
+
+            </div>
+
+
+            <div class="popular-card">
+
+                <div class="popular-food">
+                    ⭐
+                </div>
+
+                <h3>
+                    4.8 ⭐
+                </h3>
+
+                <p>
+                    Customer Rating
+                </p>
+
+            </div>
+
+
+            <div class="popular-card">
+
+                <div class="popular-food">
+                    👨‍🍳
+                </div>
+
+                <h3>
+                    10+
+                </h3>
+
+                <p>
+                    Expert Chefs
+                </p>
+
+            </div>
+
+
+            <div class="popular-card">
+
+                <div class="popular-food">
+                    🚴
+                </div>
+
+                <h3>
+                    30 min
+                </h3>
+
+                <p>
+                    Average Delivery
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= OUR MISSION ================= -->
+
+    <section class="cta-section">
+
+        <div class="cta-box">
+
+            <h2>
+                🎯 Our Mission
+            </h2>
+
+            <p>
+                Our mission is to make delicious,
+                fresh and affordable food available
+                to everyone with a simple and enjoyable
+                online ordering experience.
+            </p>
+
+            <a href="{{ url_for('menu') }}"
+               class="btn">
+
+                🍔 Explore Menu →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <!-- Foodie -->
+
+            <div>
+
+                <h2>
+                    🍔 Foodie
+                </h2>
+
+                <p>
+                    Delicious food delivered to
+                    your doorstep.
+                </p>
+
+            </div>
+
+
+            <!-- Opening Hours -->
+
+            <div>
+
+                <h3>
+                    Opening Hours
+                </h3>
+
+                <p>
+                    Monday - Sunday
+                </p>
+
+                <p>
+                    10:00 AM - 11:00 PM
+                </p>
+
+            </div>
+
+
+            <!-- Contact -->
+
+            <div>
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📞 +91 98765 43210
+                </p>
+
+                <p>
+                    📧 foodie@gmail.com
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Foodie. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Flask Static JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}">
+    </script>
+
+
+</body>
+
+</html>

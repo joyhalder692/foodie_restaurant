@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Order Successful - Foodie</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="navbar">
+
+        <div class="logo">
+            🍔 Foodie
+        </div>
+
+        <nav>
+            <a href="{{ url_for('home') }}">Home</a>
+            <a href="{{ url_for('menu') }}">Menu</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+
+            <a href="{{ url_for('cart') }}">
+                🛒 Cart <span id="cart-count">0</span>
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= SUCCESS ================= -->
+
+    <section class="success-section">
+
+        <div class="success-box">
+
+            <div class="success-icon">
+                ✅
+            </div>
+
+            <h1>
+                Order Placed Successfully!
+            </h1>
+
+            <p class="success-message">
+                Thank you for ordering from Foodie. 🍔
+                <br>
+                Your delicious food is being prepared.
+            </p>
+
+
+            <!-- ORDER DETAILS -->
+
+            <div class="order-details">
+
+                <h2>
+                    🧾 Order Details
+                </h2>
+
+                <div class="order-detail-row">
+                    <span>Order ID</span>
+                    <strong id="order-id">
+                        Loading...
+                    </strong>
+                </div>
+
+                <div class="order-detail-row">
+                    <span>Customer</span>
+                    <strong id="customer-name">
+                        Loading...
+                    </strong>
+                </div>
+
+                <div class="order-detail-row">
+                    <span>Payment</span>
+                    <strong id="payment-method">
+                        Loading...
+                    </strong>
+                </div>
+
+                <div class="order-detail-row total-row">
+                    <span>Total</span>
+                    <strong>
+                        ₹<span id="order-total">0</span>
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="success-buttons">
+
+                <a href="{{ url_for('menu') }}"
+                   class="success-btn">
+
+                    🍔 Continue Shopping
+
+                </a>
+
+
+                <a href="{{ url_for('home') }}"
+                   class="success-btn home-btn">
+
+                    🏠 Back to Home
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <div>
+                <h3>🍔 Foodie</h3>
+
+                <p>
+                    Delicious food delivered to your door.
+                </p>
+            </div>
+
+
+            <div>
+                <h4>Quick Links</h4>
+
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('menu') }}">Menu</a>
+                <a href="{{ url_for('about') }}">About</a>
+                <a href="{{ url_for('contact') }}">Contact</a>
+            </div>
+
+
+            <div>
+                <h4>Contact</h4>
+
+                <p>📞 +91 9876543210</p>
+                <p>📧 foodies@example.com</p>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Foodie. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

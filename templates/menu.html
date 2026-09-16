@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie - Menu</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🍴 Foodie
+    </div>
+
+    <nav>
+
+        <a href="{{ url_for('home') }}">
+            Home
+        </a>
+
+        <a href="{{ url_for('menu') }}"
+           class="active">
+            Menu
+        </a>
+
+        <a href="{{ url_for('about') }}">
+            About
+        </a>
+
+        <a href="{{ url_for('contact') }}">
+            Contact
+        </a>
+
+        <a href="{{ url_for('cart') }}"
+           class="cart-link">
+
+            🛒 Cart
+
+            <span id="cart-count">
+                {{ session.get('cart', [])|length }}
+            </span>
+
+        </a>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =========================
+     MENU HERO
+========================= -->
+
+<section class="menu-hero">
+
+    <h1>
+        Our Delicious Menu 🍕
+    </h1>
+
+    <p>
+        Choose your favourite food and enjoy!
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<section class="menu-controls">
+
+    <div class="menu-search">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="🔍 Search your favourite food..."
+            onkeyup="searchFood()"
+            autocomplete="off"
+        >
+
+    </div>
+
+
+
+    <!-- =========================
+         CATEGORY BUTTONS
+    ========================= -->
+
+    <div class="category-buttons">
+
+        <button
+            class="category-btn active-category"
+            onclick="filterFood('all', this)">
+
+            All
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFood('pizza', this)">
+
+            🍕 Pizza
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFood('burger', this)">
+
+            🍔 Burger
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFood('biryani', this)">
+
+            🍗 Biryani
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFood('pasta', this)">
+
+            🍝 Pasta
+
+        </button>
+
+
+        <button
+            class="category-btn"
+            onclick="filterFood('drink', this)">
+
+            🥤 Drinks
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOD MENU
+========================= -->
+
+<section class="menu-section">
+
+    <div class="menu-grid">
+
+
+
+        <!-- =========================
+             PIZZA
+        ========================= -->
+
+        <div class="menu-card"
+             data-category="pizza">
+
+            <div class="food-image">
+                🍕
+            </div>
+
+            <h3>
+                Cheese Pizza
+            </h3>
+
+            <p>
+                Fresh mozzarella, tomato sauce and delicious toppings.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹249
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Cheese Pizza">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="249">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🍕">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="menu-card"
+             data-category="pizza">
+
+            <div class="food-image">
+                🍕
+            </div>
+
+            <h3>
+                Farmhouse Pizza
+            </h3>
+
+            <p>
+                Loaded with fresh vegetables, cheese and tasty toppings.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹299
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Farmhouse Pizza">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="299">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🍕">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             BURGER
+        ========================= -->
+
+        <div class="menu-card"
+             data-category="burger">
+
+            <div class="food-image">
+                🍔
+            </div>
+
+            <h3>
+                Classic Burger
+            </h3>
+
+            <p>
+                Juicy burger with fresh vegetables and special sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹179
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Classic Burger">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="179">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🍔">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="menu-card"
+             data-category="burger">
+
+            <div class="food-image">
+                🍔
+            </div>
+
+            <h3>
+                Cheese Burger
+            </h3>
+
+            <p>
+                Soft bun, crispy patty and melted cheese.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹219
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Cheese Burger">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="219">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🍔">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             BIRYANI
+        ========================= -->
+
+        <div class="menu-card"
+             data-category="biryani">
+
+            <div class="food-image">
+                🍗
+            </div>
+
+            <h3>
+                Chicken Biryani
+            </h3>
+
+            <p>
+                Aromatic basmati rice with spicy chicken and delicious spices.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹229
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Chicken Biryani">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="229">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🍗">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="menu-card"
+             data-category="biryani">
+
+            <div class="food-image">
+                🍗
+            </div>
+
+            <h3>
+                Special Biryani
+            </h3>
+
+            <p>
+                Special aromatic biryani prepared with premium ingredients.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹279
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Special Biryani">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="279">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🍗">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             PASTA
+        ========================= -->
+
+        <div class="menu-card"
+             data-category="pasta">
+
+            <div class="food-image">
+                🍝
+            </div>
+
+            <h3>
+                Italian Pasta
+            </h3>
+
+            <p>
+                Creamy Italian pasta prepared with delicious herbs and sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹199
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Italian Pasta">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="199">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🍝">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="menu-card"
+             data-category="pasta">
+
+            <div class="food-image">
+                🍝
+            </div>
+
+            <h3>
+                Cheese Pasta
+            </h3>
+
+            <p>
+                Creamy pasta loaded with melted cheese and delicious sauce.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹229
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Cheese Pasta">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="229">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🍝">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             DRINKS
+        ========================= -->
+
+        <div class="menu-card"
+             data-category="drink">
+
+            <div class="food-image">
+                🥤
+            </div>
+
+            <h3>
+                Cold Drink
+            </h3>
+
+            <p>
+                Refreshing chilled soft drink to enjoy with your meal.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹69
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Cold Drink">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="69">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🥤">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="menu-card"
+             data-category="drink">
+
+            <div class="food-image">
+                🧃
+            </div>
+
+            <h3>
+                Fresh Juice
+            </h3>
+
+            <p>
+                Fresh and healthy fruit juice made with natural fruits.
+            </p>
+
+            <div class="food-bottom">
+
+                <span class="price">
+                    ₹99
+                </span>
+
+                <form
+                    action="{{ url_for('add_to_cart') }}"
+                    method="POST"
+                    class="add-cart-form">
+
+                    <input
+                        type="hidden"
+                        name="name"
+                        value="Fresh Juice">
+
+                    <input
+                        type="hidden"
+                        name="price"
+                        value="99">
+
+                    <input
+                        type="hidden"
+                        name="image"
+                        value="🧃">
+
+                    <button type="submit">
+                        + Add
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>

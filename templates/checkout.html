@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie - Checkout</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            🍔 Foodie
+        </div>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="{{ url_for('home') }}">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('menu') }}">
+                    Menu
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('about') }}">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('contact') }}">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('cart') }}">
+                    🛒 Cart
+                    (<span id="cart-count">0</span>)
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ================================
+         CHECKOUT HERO
+    ================================= -->
+
+    <section class="checkout-hero">
+
+        <h1>
+            🧾 Checkout
+        </h1>
+
+        <p>
+            Complete your details and place your order.
+        </p>
+
+    </section>
+
+
+
+    <!-- ================================
+         CHECKOUT SECTION
+    ================================= -->
+
+    <section class="checkout-section">
+
+
+        <!-- ============================
+             CUSTOMER FORM
+        ============================= -->
+
+        <div class="checkout-form-box">
+
+            <h2>
+                👤 Customer Information
+            </h2>
+
+
+            <form
+                id="checkout-form"
+                method="POST"
+                action="{{ url_for('place_order') }}"
+            >
+
+
+                <!-- FULL NAME -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- PHONE + EMAIL -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter phone number"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter email"
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ADDRESS -->
+
+                <div class="form-group">
+
+                    <label for="address">
+                        Delivery Address *
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        rows="4"
+                        placeholder="House No, Street, Area..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- CITY + PINCODE -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder="Enter city"
+                            required
+                        >
+
+                    </div>
+
+
+
+                    <div class="form-group">
+
+                        <label for="pincode">
+                            PIN Code *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="pincode"
+                            name="pincode"
+                            placeholder="6 digit PIN"
+                            pattern="[0-9]{6}"
+                            maxlength="6"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ============================
+                     PAYMENT METHOD
+                ============================= -->
+
+                <div class="payment-box">
+
+                    <h2>
+                        💳 Payment Method
+                    </h2>
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="cod"
+                            required
+                        >
+
+                        💵 Cash on Delivery
+
+                    </label>
+
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="card"
+                        >
+
+                        💳 Card
+
+                    </label>
+
+
+
+                    <label class="payment-option">
+
+                        <input
+                            type="radio"
+                            name="payment"
+                            value="upi"
+                        >
+
+                        📱 UPI
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- ============================
+                     HIDDEN ORDER DATA
+                ============================= -->
+
+                <input
+                    type="hidden"
+                    id="order-items"
+                    name="items"
+                >
+
+                <input
+                    type="hidden"
+                    id="order-subtotal"
+                    name="subtotal"
+                >
+
+                <input
+                    type="hidden"
+                    id="order-delivery"
+                    name="delivery"
+                >
+
+                <input
+                    type="hidden"
+                    id="order-total"
+                    name="total"
+                >
+
+
+
+                <!-- ============================
+                     PLACE ORDER
+                ============================= -->
+
+                <button
+                    type="submit"
+                    class="place-order-btn"
+                >
+
+                    🍔 Place Order
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- ================================
+             ORDER SUMMARY
+        ================================= -->
+
+        <div class="checkout-summary">
+
+            <h2>
+                🛒 Order Summary
+            </h2>
+
+
+            <div id="checkout-items"></div>
+
+
+
+            <!-- SUBTOTAL -->
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span>
+                    ₹<span id="checkout-subtotal">0</span>
+                </span>
+
+            </div>
+
+
+
+            <!-- DELIVERY -->
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery
+                </span>
+
+                <span>
+                    ₹<span id="checkout-delivery">0</span>
+                </span>
+
+            </div>
+
+
+
+            <hr>
+
+
+
+            <!-- TOTAL -->
+
+            <div class="summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <span>
+                    ₹<span id="checkout-total">0</span>
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <!-- FOODIE -->
+
+            <div>
+
+                <h3>
+                    🍔 Foodie
+                </h3>
+
+                <p>
+                    Delicious food delivered to your doorstep.
+                </p>
+
+            </div>
+
+
+
+            <!-- OPENING HOURS -->
+
+            <div>
+
+                <h3>
+                    Opening Hours
+                </h3>
+
+                <p>
+                    Monday - Sunday
+                </p>
+
+                <p>
+                    10:00 AM - 11:00 PM
+                </p>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📞 +91 98765 43210
+                </p>
+
+                <p>
+                    📧 foodie@gmail.com
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <p class="copyright">
+
+            © 2026 Foodie. All Rights Reserved.
+
+        </p>
+
+    </footer>
+
+
+
+    <!-- Flask Static JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+
+    <!-- ================================
+         CHECKOUT JAVASCRIPT
+    ================================= -->
+
+    <script>
+
+        /*
+        ==========================================
+        LOAD CART DATA
+        ==========================================
+        */
+
+        async function loadCheckout() {
+
+            try {
+
+                const response = await fetch("/cart-count");
+
+                const data = await response.json();
+
+                document.getElementById("cart-count").innerText = data.count;
+
+            }
+            catch (error) {
+
+                console.log("Cart count error:", error);
+
+            }
+
+        }
+
+
+
+        /*
+        ==========================================
+        LOAD ORDER SUMMARY
+        ==========================================
+        */
+
+        const cartItems = {{ cart_items | tojson }};
+
+        const subtotal = {{ subtotal }};
+
+        const delivery = {{ delivery }};
+
+        const total = {{ total }};
+
+
+
+        /*
+        ==========================================
+        SHOW CART ITEMS
+        ==========================================
+        */
+
+        function showCheckoutItems() {
+
+            const container =
+                document.getElementById("checkout-items");
+
+            container.innerHTML = "";
+
+
+            if (cartItems.length === 0) {
+
+                container.innerHTML = `
+                    <p>
+                        Your cart is empty.
+                    </p>
+                `;
+
+                return;
+
+            }
+
+
+            cartItems.forEach(function(item) {
+
+                const itemTotal =
+                    item.price * item.quantity;
+
+
+                const itemDiv =
+                    document.createElement("div");
+
+                itemDiv.className = "summary-item";
+
+
+                itemDiv.innerHTML = `
+
+                    <div>
+
+                        <strong>
+                            ${item.name}
+                        </strong>
+
+                        <br>
+
+                        <small>
+                            ₹${item.price} × ${item.quantity}
+                        </small>
+
+                    </div>
+
+                    <div>
+
+                        ₹${itemTotal}
+
+                    </div>
+
+                `;
+
+
+                container.appendChild(itemDiv);
+
+            });
+
+        }
+
+
+
+        /*
+        ==========================================
+        SHOW TOTALS
+        ==========================================
+        */
+
+        function showTotals() {
+
+            document.getElementById(
+                "checkout-subtotal"
+            ).innerText = subtotal.toFixed(2);
+
+
+            document.getElementById(
+                "checkout-delivery"
+            ).innerText = delivery.toFixed(2);
+
+
+            document.getElementById(
+                "checkout-total"
+            ).innerText = total.toFixed(2);
+
+        }
+
+
+
+        /*
+        ==========================================
+        PUT ORDER DATA INTO HIDDEN INPUTS
+        ==========================================
+        */
+
+        function prepareOrderData() {
+
+            document.getElementById(
+                "order-items"
+            ).value = JSON.stringify(cartItems);
+
+
+            document.getElementById(
+                "order-subtotal"
+            ).value = subtotal;
+
+
+            document.getElementById(
+                "order-delivery"
+            ).value = delivery;
+
+
+            document.getElementById(
+                "order-total"
+            ).value = total;
+
+        }
+
+
+
+        /*
+        ==========================================
+        FORM SUBMIT
+        ==========================================
+        */
+
+        document.getElementById(
+            "checkout-form"
+        ).addEventListener(
+            "submit",
+            function(event) {
+
+                /*
+                Check cart
+                */
+
+                if (cartItems.length === 0) {
+
+                    event.preventDefault();
+
+                    alert(
+                        "Your cart is empty!"
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                Prepare hidden data
+                */
+
+                prepareOrderData();
+
+            }
+        );
+
+
+
+        /*
+        ==========================================
+        PAGE LOAD
+        ==========================================
+        */
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            function() {
+
+                loadCheckout();
+
+                showCheckoutItems();
+
+                showTotals();
+
+                prepareOrderData();
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie | Your Cart</title>
+
+    <!-- Flask Static CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🍔 Foodie
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('home') }}">
+                Home
+            </a>
+
+            <a href="{{ url_for('menu') }}">
+                Menu
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+
+            <a href="{{ url_for('contact') }}">
+                Contact
+            </a>
+
+            <a href="{{ url_for('cart') }}" class="cart-link active">
+                🛒 Cart
+                (<span id="cart-count">0</span>)
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= CART HERO ================= -->
+
+    <section class="cart-hero">
+
+        <p>YOUR ORDER</p>
+
+        <h1>
+            🛒 Your Cart
+        </h1>
+
+        <span>
+            Review your delicious food before checkout.
+        </span>
+
+    </section>
+
+
+
+    <!-- ================= CART SECTION ================= -->
+
+    <section class="cart-section">
+
+
+        <!-- ================= CART ITEMS ================= -->
+
+        <div class="cart-items-box">
+
+            <h2>
+                Your Items
+            </h2>
+
+            <div id="cart-items">
+
+                <!-- JavaScript will display cart items here -->
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= ORDER SUMMARY ================= -->
+
+        <div class="cart-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span>
+                    ₹<span id="subtotal">0</span>
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Delivery
+                </span>
+
+                <span>
+                    ₹<span id="delivery">40</span>
+                </span>
+
+            </div>
+
+
+            <hr>
+
+
+            <div class="summary-total">
+
+                <span>
+                    Total
+                </span>
+
+                <span>
+                    ₹<span id="total">0</span>
+                </span>
+
+            </div>
+
+
+            <!-- Flask Checkout Route -->
+
+            <a href="{{ url_for('checkout') }}"
+               class="checkout-btn">
+
+                Proceed to Checkout →
+
+            </a>
+
+
+            <a href="{{ url_for('menu') }}"
+               class="continue-shopping">
+
+                ← Continue Shopping
+
+            </a>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <h2>
+                    🍔 Foodie
+                </h2>
+
+                <p>
+                    Delicious food delivered to your doorstep.
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Opening Hours
+                </h3>
+
+                <p>
+                    Monday - Sunday
+                </p>
+
+                <p>
+                    10:00 AM - 11:00 PM
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📞 +91 98765 43210
+                </p>
+
+                <p>
+                    📧 foodie@gmail.com
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Foodie. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Flask Static JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+</body>
+
+</html>

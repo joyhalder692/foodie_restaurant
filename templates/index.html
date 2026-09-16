@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie | Home</title>
+
+    <!-- Flask Static CSS -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🍔 Foodie
+        </div>
+
+        <nav>
+
+            <a href="{{ url_for('home') }}"
+               class="active">
+                Home
+            </a>
+
+            <a href="{{ url_for('menu') }}">
+                Menu
+            </a>
+
+            <a href="{{ url_for('about') }}">
+                About
+            </a>
+
+            <a href="{{ url_for('contact') }}">
+                Contact
+            </a>
+
+            <a href="{{ url_for('cart') }}"
+               class="cart-link">
+
+                🛒 Cart
+                (<span id="cart-count">0</span>)
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                WELCOME TO FOODIE
+            </p>
+
+            <h1>
+                Delicious Food
+                <br>
+                Delivered To You
+            </h1>
+
+            <p>
+                Fresh ingredients, delicious recipes
+                and fast delivery at your doorstep.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{{ url_for('menu') }}"
+                   class="btn">
+
+                    🍔 Order Now
+
+                </a>
+
+                <a href="{{ url_for('about') }}"
+                   class="btn secondary-btn">
+
+                    Learn More
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            🍕🍔🍗
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= POPULAR DISHES ================= -->
+
+    <section class="popular-section">
+
+        <div class="section-title">
+
+            <p>OUR SPECIALS</p>
+
+            <h2>
+                Popular Dishes
+            </h2>
+
+            <span>
+                Some of our customer's favourite dishes.
+            </span>
+
+        </div>
+
+
+        <div class="popular-grid">
+
+
+            <!-- Pizza -->
+
+            <div class="popular-card">
+
+                <div class="popular-food">
+                    🍕
+                </div>
+
+                <h3>
+                    Cheese Pizza
+                </h3>
+
+                <p>
+                    Fresh mozzarella, tomato sauce
+                    and delicious toppings.
+                </p>
+
+                <strong>
+                    ₹249
+                </strong>
+
+            </div>
+
+
+
+            <!-- Burger -->
+
+            <div class="popular-card">
+
+                <div class="popular-food">
+                    🍔
+                </div>
+
+                <h3>
+                    Classic Burger
+                </h3>
+
+                <p>
+                    Juicy chicken patty with fresh
+                    vegetables and cheese.
+                </p>
+
+                <strong>
+                    ₹179
+                </strong>
+
+            </div>
+
+
+
+            <!-- Biryani -->
+
+            <div class="popular-card">
+
+                <div class="popular-food">
+                    🍗
+                </div>
+
+                <h3>
+                    Chicken Biryani
+                </h3>
+
+                <p>
+                    Aromatic basmati rice with
+                    spicy chicken and herbs.
+                </p>
+
+                <strong>
+                    ₹229
+                </strong>
+
+            </div>
+
+
+
+            <!-- Pasta -->
+
+            <div class="popular-card">
+
+                <div class="popular-food">
+                    🍝
+                </div>
+
+                <h3>
+                    Italian Pasta
+                </h3>
+
+                <p>
+                    Creamy pasta prepared with
+                    fresh herbs and vegetables.
+                </p>
+
+                <strong>
+                    ₹199
+                </strong>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="view-menu">
+
+            <a href="{{ url_for('menu') }}"
+               class="btn">
+
+                View Full Menu →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= WHY CHOOSE US ================= -->
+
+    <section class="why-section">
+
+        <div class="section-title">
+
+            <p>WHY FOODIE</p>
+
+            <h2>
+                Why Choose Us?
+            </h2>
+
+        </div>
+
+
+        <div class="why-grid">
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🥗
+                </div>
+
+                <h3>
+                    Fresh Ingredients
+                </h3>
+
+                <p>
+                    We use fresh and high-quality
+                    ingredients for every dish.
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    🚴
+                </div>
+
+                <h3>
+                    Fast Delivery
+                </h3>
+
+                <p>
+                    Get your favourite food delivered
+                    quickly to your doorstep.
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    👨‍🍳
+                </div>
+
+                <h3>
+                    Expert Chefs
+                </h3>
+
+                <p>
+                    Our experienced chefs prepare
+                    delicious meals with care.
+                </p>
+
+            </div>
+
+
+
+            <div class="why-card">
+
+                <div class="why-icon">
+                    💰
+                </div>
+
+                <h3>
+                    Affordable Price
+                </h3>
+
+                <p>
+                    Delicious food at prices
+                    everyone can enjoy.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta-section">
+
+        <div class="cta-box">
+
+            <h2>
+                Hungry? Let's Fix That! 🍔
+            </h2>
+
+            <p>
+                Order your favourite food today.
+            </p>
+
+            <a href="{{ url_for('menu') }}"
+               class="btn">
+
+                Order Now →
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div>
+
+                <h2>
+                    🍔 Foodie
+                </h2>
+
+                <p>
+                    Delicious food delivered to your doorstep.
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Opening Hours
+                </h3>
+
+                <p>
+                    Monday - Sunday
+                </p>
+
+                <p>
+                    10:00 AM - 11:00 PM
+                </p>
+
+            </div>
+
+
+
+            <div>
+
+                <h3>
+                    Contact
+                </h3>
+
+                <p>
+                    📞 +91 98765 43210
+                </p>
+
+                <p>
+                    📧 foodie@gmail.com
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Foodie. All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- Flask Static JavaScript -->
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>

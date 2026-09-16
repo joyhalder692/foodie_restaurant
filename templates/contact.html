@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie - Contact</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+
+<!-- ==========================================
+     NAVBAR
+========================================== -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🍔 Foodie
+    </div>
+
+    <div class="nav-links">
+
+        <a href="{{ url_for('home') }}">
+            Home
+        </a>
+
+        <a href="{{ url_for('menu') }}">
+            Menu
+        </a>
+
+        <a href="{{ url_for('about') }}">
+            About
+        </a>
+
+        <a href="{{ url_for('contact') }}">
+            Contact
+        </a>
+
+        <a href="{{ url_for('cart') }}">
+            🛒 Cart
+            (<span id="cart-count">0</span>)
+        </a>
+
+    </div>
+
+</nav>
+
+
+<!-- ==========================================
+     CONTACT HERO
+========================================== -->
+
+<section class="contact-hero">
+
+    <div class="contact-hero-content">
+
+        <h1>
+            CONTACT FOODIE
+        </h1>
+
+        <h2>
+            We'd Love To Hear From You
+        </h2>
+
+        <p>
+            Have a question, suggestion or feedback?
+            Get in touch with us.
+        </p>
+
+        <div class="contact-emoji">
+            📞🍔
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     CONTACT SECTION
+========================================== -->
+
+<section class="contact-section">
+
+    <div class="contact-container">
+
+
+        <!-- ======================================
+             LEFT SIDE - CONTACT INFORMATION
+        ======================================= -->
+
+        <div class="contact-info">
+
+            <h2>
+                GET IN TOUCH
+            </h2>
+
+            <h3>
+                Contact Us
+            </h3>
+
+            <p>
+                We are always happy to help you.
+            </p>
+
+
+            <!-- PHONE -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <div>
+
+                    <h3>
+                        Phone
+                    </h3>
+
+                    <p>
+                        +91 98765 43210
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    📧
+                </div>
+
+                <div>
+
+                    <h3>
+                        Email
+                    </h3>
+
+                    <p>
+                        foodie@gmail.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ADDRESS -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <h3>
+                        Address
+                    </h3>
+
+                    <p>
+                        Foodie Restaurant,
+                        West Bengal, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- OPENING HOURS -->
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    🕐
+                </div>
+
+                <div>
+
+                    <h3>
+                        Opening Hours
+                    </h3>
+
+                    <p>
+                        Monday - Sunday
+                    </p>
+
+                    <p>
+                        10:00 AM - 11:00 PM
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ======================================
+             RIGHT SIDE - SEND MESSAGE
+        ======================================= -->
+
+        <div class="contact-form-container">
+
+            <h2>
+                SEND MESSAGE
+            </h2>
+
+            <h3>
+                Get In Touch
+            </h3>
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            {% if success %}
+
+            <div class="success-message">
+
+                {{ success }}
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- ERROR MESSAGE -->
+
+            {% if error %}
+
+            <div class="error-message">
+
+                {{ error }}
+
+            </div>
+
+            {% endif %}
+
+
+            <!-- CONTACT FORM -->
+
+            <form
+                action="{{ url_for('contact') }}"
+                method="POST"
+            >
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Your Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- SUBJECT -->
+
+                <div class="form-group">
+
+                    <label for="subject">
+                        Subject
+                    </label>
+
+                    <input
+                        type="text"
+                        id="subject"
+                        name="subject"
+                        placeholder="Enter subject"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Your Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="Write your message here..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <!-- SEND BUTTON -->
+
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    📩 Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     HUNGRY SECTION
+========================================== -->
+
+<section class="contact-bottom">
+
+    <div class="contact-bottom-content">
+
+        <h2>
+            🍔 Hungry?
+        </h2>
+
+        <p>
+            Don't wait! Order your favourite food
+            from Foodie today.
+        </p>
+
+        <a
+            href="{{ url_for('menu') }}"
+            class="btn"
+        >
+            Order Now →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <div class="footer-container">
+
+
+        <!-- FOODIE -->
+
+        <div class="footer-column">
+
+            <h2>
+                🍔 Foodie
+            </h2>
+
+            <p>
+                Delicious food delivered
+                to your doorstep.
+            </p>
+
+        </div>
+
+
+        <!-- OPENING HOURS -->
+
+        <div class="footer-column">
+
+            <h3>
+                Opening Hours
+            </h3>
+
+            <p>
+                Monday - Sunday
+            </p>
+
+            <p>
+                10:00 AM - 11:00 PM
+            </p>
+
+        </div>
+
+
+        <!-- CONTACT -->
+
+        <div class="footer-column">
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                📧 foodie@gmail.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Foodie. All Rights Reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
