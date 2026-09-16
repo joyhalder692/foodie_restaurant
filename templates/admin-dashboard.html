@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie Admin Dashboard</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: #f5f6f8;
+
+        }
+
+        header {
+
+            background: #ffffff;
+
+            padding: 18px 30px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+        }
+
+        .logo {
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+        }
+
+        .logout {
+
+            background: #e53935;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 10px 18px;
+
+            border-radius: 7px;
+
+        }
+
+        .container {
+
+            max-width: 1200px;
+
+            margin: 40px auto;
+
+            padding: 0 20px;
+
+        }
+
+        h1 {
+
+            margin-bottom: 10px;
+
+        }
+
+        .subtitle {
+
+            color: #777;
+
+            margin-bottom: 30px;
+
+        }
+
+        .card {
+
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+
+        }
+
+        .count {
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+
+            font-weight: bold;
+
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+        }
+
+        th {
+
+            background: #ff6b35;
+
+            color: white;
+
+            padding: 13px;
+
+            text-align: left;
+
+        }
+
+        td {
+
+            padding: 13px;
+
+            border-bottom: 1px solid #eee;
+
+            vertical-align: top;
+
+        }
+
+        tr:hover {
+
+            background: #fafafa;
+
+        }
+
+        .empty {
+
+            text-align: center;
+
+            padding: 40px;
+
+            color: #777;
+
+        }
+
+        .message {
+
+            max-width: 300px;
+
+            word-wrap: break-word;
+
+        }
+
+        @media (max-width: 800px) {
+
+            .card {
+
+                overflow-x: auto;
+
+            }
+
+            table {
+
+                min-width: 800px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            🍔 Foodie Admin
+        </div>
+
+        <a
+            href="{{ url_for('admin_logout') }}"
+            class="logout"
+        >
+            Logout
+        </a>
+
+    </header>
+
+
+    <div class="container">
+
+        <h1>
+            📊 Admin Dashboard
+        </h1>
+
+        <p class="subtitle">
+            Manage your Foodie website
+        </p>
+
+
+        <div class="card">
+
+            <div class="count">
+
+                📩 Contact Messages:
+                {{ messages|length }}
+
+            </div>
+
+
+            {% if messages %}
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Subject</th>
+
+                        <th>Message</th>
+
+                        <th>Date</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for message in messages %}
+
+                    <tr>
+
+                        <td>
+                            {{ message["id"] }}
+                        </td>
+
+                        <td>
+                            {{ message["name"] }}
+                        </td>
+
+                        <td>
+                            {{ message["email"] }}
+                        </td>
+
+                        <td>
+                            {{ message["subject"] }}
+                        </td>
+
+                        <td class="message">
+                            {{ message["message"] }}
+                        </td>
+
+                        <td>
+                            {{ message["message_date"] }}
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+            {% else %}
+
+            <div class="empty">
+
+                📭 No messages yet.
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

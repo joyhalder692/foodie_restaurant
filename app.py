@@ -455,6 +455,72 @@ def order_success():
     )
 
 
+# =========================
+# ADMIN LOGIN
+# =========================
+
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "1234"
+
+
+@app.route("/admin", methods=["GET", "POST"])
+def admin_login():
+
+    if request.method == "POST":
+
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+
+            session["admin_logged_in"] = True
+
+            return redirect(url_for("admin_dashboard"))
+
+        return render_template(
+            "admin-login.html",
+            error="Invalid username or password."
+        )
+
+    return render_template("admin-login.html")
+
+
+# =========================
+# ADMIN DASHBOARD
+# =========================
+
+@app.route("/admin/dashboard")
+def admin_dashboard():
+
+    if not session.get("admin_logged_in"):
+        return redirect(url_for("admin_login"))
+
+    connection = get_db_connection()
+
+    messages = connection.execute(
+        "SELECT * FROM contact_messages ORDER BY id DESC"
+    ).fetchall()
+
+    connection.close()
+
+    return render_template(
+        "admin-dashboard.html",
+        messages=messages
+    )
+
+
+# =========================
+# ADMIN LOGOUT
+# =========================
+
+@app.route("/admin/logout")
+def admin_logout():
+
+    session.pop("admin_logged_in", None)
+
+    return redirect(url_for("admin_login"))
+
+
 # ==========================================
 # RUN FLASK
 # ==========================================

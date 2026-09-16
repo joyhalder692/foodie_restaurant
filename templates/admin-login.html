@@ -1,0 +1,265 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Foodie Admin Login</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6b35,
+                    #ff914d
+                );
+        }
+
+        .login-box {
+
+            width: 380px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.20);
+        }
+
+        .logo {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .title {
+
+            text-align: center;
+
+            color: #555;
+
+            font-size: 18px;
+
+            margin-bottom: 30px;
+        }
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+
+            color: #333;
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 8px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+
+            border-color: #ff6b35;
+
+            box-shadow:
+                0 0 0 2px
+                rgba(255, 107, 53, 0.15);
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #ff6b35;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+
+            background: #e85b2b;
+        }
+
+        .error {
+
+            background: #ffe0e0;
+
+            color: #c62828;
+
+            padding: 10px;
+
+            border-radius: 7px;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+
+            font-size: 14px;
+        }
+
+        .back {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #777;
+
+            text-decoration: none;
+
+            font-size: 14px;
+        }
+
+        .back:hover {
+
+            color: #ff6b35;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="login-box">
+
+
+        <div class="logo">
+            🍔 Foodie
+        </div>
+
+
+        <div class="title">
+            Admin Login
+        </div>
+
+
+        {% if error %}
+
+        <div class="error">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <form method="POST"
+              action="{{ url_for('admin_login') }}">
+
+
+            <label for="username">
+                Username
+            </label>
+
+
+            <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Enter username"
+                autocomplete="username"
+                required
+            >
+
+
+            <label for="password">
+                Password
+            </label>
+
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+            >
+
+
+            <button type="submit">
+                🔐 Login
+            </button>
+
+
+        </form>
+
+
+        <a href="{{ url_for('home') }}"
+           class="back">
+
+            ← Back to Foodie
+
+        </a>
+
+
+    </div>
+
+
+</body>
+
+</html>
+```
